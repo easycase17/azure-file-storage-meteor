@@ -29,7 +29,7 @@ Package.onUse((api) => {
 
 // This defines the tests for the package:
 Package.onTest((api) => {
-    // api.use(['cfs:standard-packages', 'test-helpers', 'tinytest'], 'server');
-    // api.addFiles('tests/server-tests.js', 'server');
-    // api.addFiles('tests/client-tests.js', 'client');
+    api.use(['cfs:standard-packages', 'test-helpers', 'tinytest'], 'server');
+    api.addFiles('tests/server-tests.js', 'server');
+    api.addFiles('tests/client-tests.js', 'client');
 });
