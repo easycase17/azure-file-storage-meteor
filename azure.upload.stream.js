@@ -1,8 +1,8 @@
 var Writable = Npm.require('stream').Writable;
 var streamBuffers = Npm.require("stream-buffers");
 
-// Extend the Azure.Client API
-Azure.Client.prototype.createReadStream = function (params, options) {
+// Extend the Azure.FileService API
+Azure.FileService.prototype.createReadStream = function (params, options) {
     var key = params.Key;
     var wrappedReadFile = Meteor.wrapAsync(this.readFile, this);
     var readableStreamBuffer = new streamBuffers.ReadableStreamBuffer();
@@ -21,7 +21,7 @@ Azure.Client.prototype.createReadStream = function (params, options) {
     return readableStreamBuffer;
 };
 
-Azure.Client.prototype.createWriteStream = function (params, options) {
+Azure.FileService.prototype.createWriteStream = function (params, options) {
     var self = this;
 
     // Create the writeable stream interface.
@@ -175,7 +175,7 @@ Azure.Client.prototype.createWriteStream = function (params, options) {
     // Needs to initialize the upload
     var emptyBuffer = Buffer(0);
 
-    // Use the Azure.Client to initialize a multipart upload to Azure.
+    // Use the Azure.FileService to initialize a multipart upload to Azure.
     // There is no method to initialize the upload, so we pass an empty buffer.
     self.resumableUploadStep(emptyBuffer, null, function (err, data) {
         if (err) {

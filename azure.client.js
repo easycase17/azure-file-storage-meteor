@@ -21,6 +21,6 @@ FS.Store.Azure = function (name, options) {
     });
 };
 
-FS.Store.S3.prototype.fileKey = function (fileObj) {
+FS.Store.Azure.prototype.fileKey = function (fileObj) {
     return fileObj.collectionName + '/' + fileObj._id + '-' + fileObj.name();
 };
