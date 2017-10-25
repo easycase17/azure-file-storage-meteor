@@ -12,7 +12,8 @@ Package.describe({
 
 // This lets you use npm packages in your package:
 Npm.depends({
-    'azure-storage': '2.6.0'
+    'azure-storage': '2.6.0',
+    'stream-buffers': '2.1.0'
 });
 
 // This defines your actual package:
